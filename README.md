@@ -41,7 +41,7 @@ import { lipoRuntimeHours, ipc2221TraceWidthMil, packWh } from "./calculators";
 lipoRuntimeHours({ capacityMah: 2000, averageCurrentMa: 100, usablePct: 80 });
 
 // 2 A, 10 °C rise, 1 oz outer copper -> about 31 mil minimum width
-ipc2221TraceWidthMil({ currentA: 2, tempRiseC: 10, copperOz: 1, external: true });
+ipc2221TraceWidthMil({ currentA: 2, tempRiseC: 10, copperOz: 1, layer: "external" });
 
 // A 3S2P pack of 3000 mAh / 3.7 V cells -> 66.6 Wh
 packWh({ capacityMah: 3000, nominalV: 3.7, series: 3, parallel: 2 });
