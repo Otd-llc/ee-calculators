@@ -25,16 +25,14 @@ the prose there can never drift from the math here.
 
 ## Install
 
-Not on npm yet. For now, copy [`src/calculators.ts`](./src/calculators.ts) into
-your project (it has no dependencies), or clone the repo:
+No dependencies. Copy [`src/calculators.ts`](./src/calculators.ts) into your
+TypeScript project, or clone the repo:
 
 ```bash
 git clone https://github.com/Otd-llc/ee-calculators
 ```
 
 ```ts
-// You copied the file, so import it by relative path. Once the package is on npm,
-// import by name instead: from "@onethousanddrones/ee-calculators".
 import { lipoRuntimeHours, ipc2221TraceWidthMil, packWh } from "./calculators";
 
 // A 2000 mAh pack at 100 mA average, 80% usable -> 16 hours
