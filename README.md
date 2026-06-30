@@ -9,6 +9,15 @@ pulled out so you can use it directly or check the numbers.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-c8963e.svg)](./LICENSE)
 
+[![PCB trace width calculator (IPC-2221)](docs/pcb-trace-width.png)](https://academy.onethousanddrones.com/tools/pcb-trace-width)
+
+<p>
+  <a href="https://academy.onethousanddrones.com/tools/voltage-divider"><img src="docs/voltage-divider.png" width="49%" alt="Voltage divider calculator" /></a>
+  <a href="https://academy.onethousanddrones.com/tools/ldo-headroom"><img src="docs/ldo-headroom.png" width="49%" alt="LDO headroom / dissipation calculator" /></a>
+</p>
+
+<sub>The live, interactive calculators on the One Thousand Drones Academy. The math in this repo drives them; click any shot to try it.</sub>
+
 Every function takes already-validated scalars and returns a number, throwing on
 physically meaningless input (a zero or negative current, capacity, or
 resistance) so a divide-by-zero never reaches your UI as `Infinity` or `NaN`. The
