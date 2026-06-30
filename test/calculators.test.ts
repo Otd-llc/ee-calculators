@@ -225,3 +225,39 @@ describe("battery pack energy", () => {
     expect(packCapacityMah({ capacityMah: 3000, parallel: 2 })).toBe(6000);
   });
 });
+
+// Coverage fill from the multi-lens review: guard throws and edge branches that
+// were previously unexercised. These confirm existing behaviour; no source change.
+describe("guards and edge branches", () => {
+  it("resistorPowerW throws on negative input but allows zero (guard is < 0)", () => {
+    expect(() => resistorPowerW({ currentMa: -1, rOhms: 10 })).toThrow();
+    expect(() => resistorPowerW({ currentMa: 10, rOhms: -1 })).toThrow();
+    expect(resistorPowerW({ currentMa: 0, rOhms: 0 })).toBe(0);
+  });
+  it("voltageDividerCurrentMa throws when both resistors are zero", () => {
+    expect(() => voltageDividerCurrentMa({ vinV: 5, r1Ohms: 0, r2Ohms: 0 })).toThrow();
+  });
+  it("ipc2221TraceWidthMil throws on non-positive copper weight", () => {
+    expect(() =>
+      ipc2221TraceWidthMil({ currentA: 1, tempRiseC: 10, copperOz: 0, external: true }),
+    ).toThrow();
+  });
+  it("nextE24Up returns the smallest E24 value for non-positive input", () => {
+    expect(nextE24Up(0)).toBe(1);
+    expect(nextE24Up(-5)).toBe(1);
+  });
+  it("recommendResistorWattage honours a custom derating and clamps to the max", () => {
+    expect(recommendResistorWattage(0.1, 3)).toBe(0.5); // need 0.3 -> 0.5
+    expect(recommendResistorWattage(6)).toBe(10); // need 12 -> clamp to the 10 W max
+  });
+  it("ws2812RecommendedSupplyAmps applies a non-default headroom", () => {
+    // 30 px * 60 mA = 1800 mA, +50% = 2700 mA = 2.7 A
+    expect(ws2812RecommendedSupplyAmps({ pixelCount: 30 }, 50)).toBeCloseTo(2.7, 5);
+  });
+  it("ws2812SupplyMilliamps returns just the controller overhead at zero pixels", () => {
+    expect(ws2812SupplyMilliamps({ pixelCount: 0, controllerMa: 220 })).toBe(220);
+  });
+  it("formatRuntime renders zero", () => {
+    expect(formatRuntime(0)).toBe("0 h 0 m");
+  });
+});

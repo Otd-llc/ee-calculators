@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Electronics calculators (LiPo runtime, WS2812 supply, LED resistor, voltage divider, LDO headroom, RC filter, PCB trace width, resistor power, battery watt-hours). The tested math behind the One Thousand Drones Academy /tools calculators.",
   "type": "module",
+  "sideEffects": false,
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
@@ -14,7 +14,7 @@
   },
   "files": [
     "dist",
-    "src"
+    "docs"
   ],
   "scripts": {
     "build": "tsc",
@@ -48,6 +48,12 @@
   },
   "author": "One Thousand Drones (https://onethousanddrones.com)",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "typescript": "^5.7.3",
     "vitest": "^2.1.9"

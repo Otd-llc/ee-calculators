@@ -25,20 +25,17 @@ the prose there can never drift from the math here.
 
 ## Install
 
-The package is headed for npm. Until then, clone the repo or copy
-[`src/calculators.ts`](./src/calculators.ts) straight into your project (it has no
-dependencies).
+Not on npm yet. For now, copy [`src/calculators.ts`](./src/calculators.ts) into
+your project (it has no dependencies), or clone the repo:
 
 ```bash
 git clone https://github.com/Otd-llc/ee-calculators
 ```
 
 ```ts
-import {
-  lipoRuntimeHours,
-  ipc2221TraceWidthMil,
-  packWh,
-} from "@onethousanddrones/ee-calculators";
+// You copied the file, so import it by relative path. Once the package is on npm,
+// import by name instead: from "@onethousanddrones/ee-calculators".
+import { lipoRuntimeHours, ipc2221TraceWidthMil, packWh } from "./calculators";
 
 // A 2000 mAh pack at 100 mA average, 80% usable -> 16 hours
 lipoRuntimeHours({ capacityMah: 2000, averageCurrentMa: 100, usablePct: 80 });
@@ -85,13 +82,13 @@ includes a small resize listener if you want the frame to fit exactly.
 
 The constants and curves are from primary sources, not folklore:
 
-- **WS2812 full white = 60 mA/pixel** — the XINGLIGHT XL-5050RGBC-WS2812B and
+- **WS2812 full white = 60 mA/pixel**: the XINGLIGHT XL-5050RGBC-WS2812B and
   Adafruit NeoPixel worst case (three ~20 mA channels at once).
-- **PCB trace width** — the IPC-2221 current-capacity curve
+- **PCB trace width**: the IPC-2221 current-capacity curve
   (`I = k · ΔT^0.44 · A^0.725`), with `k = 0.048` external / `0.024` internal and
   1 oz copper ≈ 1.378 mil thick.
-- **E24 resistor values** — IEC 60063.
-- **Resistor wattage** — the recommended part is the smallest standard rating at
+- **E24 resistor values**: IEC 60063.
+- **Resistor wattage**: the recommended part is the smallest standard rating at
   twice the dissipation, since a resistor run at its rating sits near its maximum
   temperature.
 
@@ -102,7 +99,7 @@ The full explanations, worked examples, and citations live on each
 
 ```bash
 npm install
-npm test      # vitest, ~40 cases covering the math and the input guards
+npm test      # vitest, 41 cases covering the math and the input guards
 npm run build # tsc -> dist/
 ```
 
