@@ -1,0 +1,7 @@
+node_modules/
+dist/
+# Not committed for a library; a transient local tool poisoned an early lockfile
+# with a file: dep on the private academy repo, so keep it out of the repo.
+package-lock.json
+*.log
+.DS_Store

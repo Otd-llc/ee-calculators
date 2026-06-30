@@ -1,0 +1,55 @@
+{
+  "name": "@onethousanddrones/ee-calculators",
+  "version": "0.1.0",
+  "description": "Electronics calculators (LiPo runtime, WS2812 supply, LED resistor, voltage divider, LDO headroom, RC filter, PCB trace width, resistor power, battery watt-hours). The tested math behind the One Thousand Drones Academy /tools calculators.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "electronics",
+    "calculator",
+    "lipo-runtime",
+    "ws2812",
+    "led-resistor",
+    "voltage-divider",
+    "ldo",
+    "rc-filter",
+    "pcb-trace-width",
+    "ipc-2221",
+    "resistor-power",
+    "battery-watt-hours",
+    "ohms-law",
+    "hardware",
+    "pcb"
+  ],
+  "homepage": "https://academy.onethousanddrones.com/tools",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Otd-llc/ee-calculators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Otd-llc/ee-calculators/issues"
+  },
+  "author": "One Thousand Drones (https://onethousanddrones.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.9"
+  }
+}
