@@ -10,7 +10,7 @@ pulled out so you can use it directly or check the numbers.
 [![License: MIT](https://img.shields.io/badge/License-MIT-c8963e.svg)](./LICENSE)
 
 <p align="center">
-  <a href="https://academy.onethousanddrones.com/tools/pcb-trace-width"><img src="docs/pcb-trace-width.png" width="32%" alt="PCB trace width calculator" /></a>
+  <a href="https://academy.onethousanddrones.com/tools/led-series-resistor"><img src="docs/led-series-resistor.png" width="32%" alt="LED series resistor calculator" /></a>
   <a href="https://academy.onethousanddrones.com/tools/lipo-battery-runtime"><img src="docs/lipo-battery-runtime.png" width="32%" alt="LiPo battery runtime calculator" /></a>
   <a href="https://academy.onethousanddrones.com/tools/voltage-divider"><img src="docs/voltage-divider.png" width="32%" alt="Voltage divider calculator" /></a>
 </p>
