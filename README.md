@@ -1,4 +1,13 @@
-# OTD EE Calculators
+<p align="center">
+  <a href="https://academy.onethousanddrones.com/tools/pcb-trace-width"><img alt="The PCB trace width calculator: the current steps from 0.5 A to 5 A and the minimum width updates from 4.5 to 108.9 mil, then an internal layer at 5 A needs 283.2 mil" src="docs/readme/loop-trace-width.webp" width="720" /></a>
+</p>
+<p align="center"><sub>The live PCB trace width calculator, driven by this math: 0.5 A to 5 A, then an internal layer. Captured October 2026.</sub></p>
+
+# ee-calculators
+
+Tested TypeScript math for nine electronics calculators: the open-source core of the OTD Academy /tools calculators.
+
+**Live** · [academy.onethousanddrones.com/tools](https://academy.onethousanddrones.com/tools) · **Status** · active
 
 Tested, dependency-free TypeScript math for nine common electronics calculations:
 battery runtime, addressable-LED supply sizing, LED series resistors, voltage
@@ -7,15 +16,14 @@ power, and battery pack energy. This is the same math that drives the live
 calculators at the [One Thousand Drones Academy tools page](https://academy.onethousanddrones.com/tools),
 pulled out so you can use it directly or check the numbers.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-c8963e.svg)](./LICENSE)
+<table>
+  <tr>
+    <td width="50%"><a href="https://academy.onethousanddrones.com/tools/voltage-divider"><img alt="The voltage divider calculator: 5 V in, R1 10000 ohms, R2 20000 ohms, 3.33 V out at 0.167 mA" src="docs/readme/bench-voltage-divider-2026-10.webp" width="100%" /></a><br><sub>Voltage divider: 5 V into an ESP32's 3.3 V ADC.</sub></td>
+    <td width="50%"><a href="https://academy.onethousanddrones.com/tools/led-series-resistor"><img alt="The LED series resistor calculator: 3.3 V supply, 1.8 V LED, 5 mA, a 300 ohm resistor burning 7.5 mW" src="docs/readme/bench-led-series-resistor-2026-10.webp" width="100%" /></a><br><sub>LED series resistor: the nearest E24 value and its power.</sub></td>
+  </tr>
+</table>
+<p align="center"><sub>The live calculators on the One Thousand Drones Academy, captured October 2026. The math in this repo drives them.</sub></p>
 
-<p align="center">
-  <a href="https://academy.onethousanddrones.com/tools/led-series-resistor"><img src="docs/led-series-resistor.png" width="32%" alt="LED series resistor calculator" /></a>
-  <a href="https://academy.onethousanddrones.com/tools/lipo-battery-runtime"><img src="docs/lipo-battery-runtime.png" width="32%" alt="LiPo battery runtime calculator" /></a>
-  <a href="https://academy.onethousanddrones.com/tools/voltage-divider"><img src="docs/voltage-divider.png" width="32%" alt="Voltage divider calculator" /></a>
-</p>
-
-<sub>The live, interactive calculators on the One Thousand Drones Academy. The math in this repo drives them; click any shot to try it.</sub>
 
 Every function takes already-validated scalars and returns a number, throwing on
 physically meaningless input (a zero or negative current, capacity, or
@@ -44,6 +52,13 @@ ipc2221TraceWidthMil({ currentA: 2, tempRiseC: 10, copperOz: 1, layer: "external
 // A 3S2P pack of 3000 mAh / 3.7 V cells -> 66.6 Wh
 packWh({ capacityMah: 3000, nominalV: 3.7, series: 3, parallel: 2 });
 ```
+
+<p align="center">
+  <a href="#install"><img alt="A terminal running the example above against this library: lipoRuntimeHours 16 h, ipc2221TraceWidthMil 30.76 mil, packWh 66.6 Wh" src="docs/readme/run-example.webp" width="100%" /></a>
+</p>
+<p align="center"><sub>The example above, run against <code>src/calculators.ts</code>.</sub></p>
+
+Requires Node 18 or later (`engines`), or any TypeScript toolchain; the file has no imports.
 
 ## The calculators
 
@@ -97,10 +112,15 @@ The full explanations, worked examples, and citations live on each
 
 ```bash
 npm install
-npm test      # vitest, 41 cases covering the math and the input guards
+npm test      # vitest, 48 cases covering the math and the input guards
 npm run build # tsc -> dist/
 ```
 
 ## License
 
-MIT. See [LICENSE](./LICENSE). Built by [One Thousand Drones](https://onethousanddrones.com).
+MIT (SPDX `MIT`), © 2026 One Thousand Drones, LLC. See [LICENSE](./LICENSE).
+
+---
+
+<sub><b>ONE THOUSAND DRONES</b> · [onethousanddrones.com](https://onethousanddrones.com) · [academy.onethousanddrones.com](https://academy.onethousanddrones.com) · [github.com/Otd-llc](https://github.com/Otd-llc)</sub>
+<!-- otd-readme-kit footer v1 -->
